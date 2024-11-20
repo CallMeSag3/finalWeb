@@ -1,0 +1,71 @@
+<div class="container">
+    <h1>Gestión de Contratos</h1>
+
+    <!-- Formulario para insertar datos -->
+    <form #contratoForm="ngForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="identificador">Identificador</label>
+        <input id="identificador" name="identificador" [(ngModel)]="nuevoContrato.identificador" required />
+      </div>
+      <div>
+        <label for="valor">Valor</label>
+        <input min="1" id="valor" name="valor" [(ngModel)]="nuevoContrato.valor" type="number" required />
+      </div>
+      <div>
+        <label for="nombreContratante">Nombre Contratante</label>
+        <input id="nombreContratante" name="nombreContratante" [(ngModel)]="nuevoContrato.nombreContratante" required />
+      </div>
+      <div>
+        <label for="documentoContratante">Documento Contratante</label>
+        <input id="documentoContratante" name="documentoContratante" [(ngModel)]="nuevoContrato.documentoContratante" required />
+      </div>
+      <div>
+        <label for="nombreContratantista">Nombre Contratantista</label>
+        <input id="nombreContratantista" name="nombreContratantista" [(ngModel)]="nuevoContrato.nombreContratantista" required />
+      </div>
+      <div>
+        <label for="documentoContratantista">Documento Contratantista</label>
+        <input id="documentoContratantista" name="documentoContratantista" [(ngModel)]="nuevoContrato.documentoContratantista" required />
+      </div>
+      <div>
+        <label for="fechaInicial">Fecha Inicial</label>
+        <input id="fechaInicial" name="fechaInicial" [(ngModel)]="nuevoContrato.fechaInicial" type="date" required />
+      </div>
+      <div>
+        <label for="fechaFinal">Fecha Final</label>
+        <input id="fechaFinal" name="fechaFinal" [(ngModel)]="nuevoContrato.fechaFinal" type="date" required />
+      </div>
+      <button type="submit">Agregar Contrato</button>
+    </form>
+
+    <!-- Tabla para mostrar datos -->
+    <h2>Lista de Contratos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Identificador</th>
+          <th>Valor</th>
+          <th>Nombre Contratante</th>
+          <th>Documento Contratante</th>
+          <th>Nombre Contratantista</th>
+          <th>Documento Contratantista</th>
+          <th>Fecha Inicial</th>
+          <th>Fecha Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contrato of contratos">
+          <td>{{ contrato.id }}</td>
+          <td>{{ contrato.identificador }}</td>
+          <td>{{ contrato.valor }}</td>
+          <td>{{ contrato.nombreContratante }}</td>
+          <td>{{ contrato.documentoContratante }}</td>
+          <td>{{ contrato.nombreContratantista }}</td>
+          <td>{{ contrato.documentoContratantista }}</td>
+          <td>{{ contrato.fechaInicial }}</td>
+          <td>{{ contrato.fechaFinal }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
